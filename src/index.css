@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 30% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 10%;
+
+    /* Deep Navy Blue Primary */
+    --primary: 220 65% 20%;
+    --primary-foreground: 45 90% 95%;
+
+    --secondary: 220 20% 94%;
+    --secondary-foreground: 220 30% 20%;
+
+    --muted: 220 15% 93%;
+    --muted-foreground: 220 15% 45%;
+
+    /* Gold Accent */
+    --accent: 43 90% 50%;
+    --accent-foreground: 220 65% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 220 65% 20%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --gold: 43 90% 50%;
+    --gold-light: 43 85% 70%;
+    --gold-dark: 38 80% 35%;
+    --navy: 220 65% 20%;
+    --navy-light: 220 55% 35%;
+    --navy-dark: 220 70% 12%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 65% 8%;
+    --foreground: 210 40% 98%;
+    --card: 220 60% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 60% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 43 85% 55%;
+    --primary-foreground: 220 65% 10%;
+    --secondary: 220 40% 18%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 40% 18%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 43 85% 55%;
+    --accent-foreground: 220 65% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 40% 20%;
+    --input: 220 40% 20%;
+    --ring: 43 85% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Certificate fonts */
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Certificate-specific styles */
+.certificate-outer {
+  background: #ffffff;
+  position: relative;
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #c8971c 0%, #e8c040 40%, #f0d060 60%, #c8971c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Shimmer effect on gold borders */
+.gold-border-shimmer {
+  background: linear-gradient(135deg, #8B6914 0%, #c8971c 25%, #f0d060 50%, #c8971c 75%, #8B6914 100%);
+}
+
+/* Print styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #certificate-print-zone,
+  #certificate-print-zone * {
+    visibility: visible;
+  }
+  #certificate-print-zone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--secondary));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--navy-light));
+  border-radius: 3px;
+}
